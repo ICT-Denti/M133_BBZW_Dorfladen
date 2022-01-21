@@ -1,6 +1,9 @@
+<%- await include('front-end/head.ejs'{ title: 'Welcome' }) %>
+<%- await include('front-end/header.ejs') %>
 <p>Your items:</p>
 <ul>
     <% for (let i = 0; i < itemList.length; i++) {  %>
         <li><%= itemList[i].productName %></li>
     <% } %>
 </ul>
+<%- await include('front-end/footer.ejs') %>

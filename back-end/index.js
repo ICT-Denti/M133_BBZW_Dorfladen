@@ -8,7 +8,7 @@ const router = new Router();
 router.get("/", async (context) => {
     try {
         context.response.body = await renderFileToString(Deno.cwd() + 
-        "./front-end/main.ejs", { });
+        "/front-end/uebersicht.ejs", { });
         console.table(context.request);
         context.response.type = "html";           
     } catch (error) {
@@ -16,18 +16,17 @@ router.get("/", async (context) => {
     }
 });
 
-router.post("/info", async (context) => {
-    try {
-        const body = await context.request.body().value;
-        console.log(body);
-        const fname = body.get("first-name");
-        context.response.body = await renderFileToString(Deno.cwd() + 
-            "./front-end/info.ejs", { firstName: fname, itemList: items });
-        context.response.type = "html";
-    } catch (error) {
-        console.log(error);
-    }
-});
+// router.post("/warenkorb", async (context) => {
+//     try {
+//         const body = await context.request.body().value;
+//         console.log(body);
+//         context.response.body = await renderFileToString(Deno.cwd() + 
+//             "/front-end/warenkorb.ejs", { itemList: items });
+//         context.response.type = "html";
+//     } catch (error) {
+//         console.log(error);
+//     }
+// });
 
 const app = new Application();
 app.use(router.routes());
@@ -37,7 +36,7 @@ app.use(router.allowedMethods());
 // Steht diese Middleware vor den Routes, werden die Routes nicht verarbeitet!
 app.use(async (context) => {
     await send(context, context.request.url.pathname, {
-        root: `${Deno.cwd()}./static`,
+        root: `${Deno.cwd()}/static`,
     });
 }); 
 
