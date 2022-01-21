@@ -1,7 +1,6 @@
 'use strict';
 import  { Application, Router, send } from "./deps.js";
 import { renderFileToString ,readJsonSync} from './deps.js';
-console.log(Deno.cwd);
 const items = readJsonSync("./static/products.json");
 
 const router = new Router();
