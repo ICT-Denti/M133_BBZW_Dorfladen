@@ -1,9 +1,14 @@
-<%- await include('front-end/head.ejs'{ title: 'Welcome' }) %>
+<%- await include('front-end/head.ejs', { title: 'Welcome' }) %>
 <%- await include('front-end/header.ejs') %>
-<p>Your items:</p>
-<ul>
-    <% for (let i = 0; i < itemList.length; i++) {  %>
-        <li><%= itemList[i].productName %></li>
-    <% } %>
-</ul>
+<body>
+    <div class="grid-container">
+            <% for (let i = 0; i < itemList.length; i++) {  %>
+                <div class="box">
+                    <img src="<%= itemList[i].imageName %>" alt="<%= itemList[i].imageName %>">
+                    <p id=""><%= itemList[i].productName %></p>
+                    <p>CHF <%= itemList[i].specialOffer.toFixed(2) %> <s id="normalPrice">CHF<%= itemList[i].normalPrice.toFixed(2) %></s></p>
+                </div>
+            <% } %>
+    </div>
+</body>
 <%- await include('front-end/footer.ejs') %>

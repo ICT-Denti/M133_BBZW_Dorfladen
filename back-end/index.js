@@ -7,9 +7,7 @@ const router = new Router();
 
 router.get("/", async (context) => {
     try {
-        context.response.body = await renderFileToString(Deno.cwd() + 
-        "/front-end/uebersicht.ejs", { });
-        console.table(context.request);
+        context.response.body = await renderFileToString(Deno.cwd() + "/front-end/uebersicht.ejs", { itemList: items });
         context.response.type = "html";           
     } catch (error) {
         console.log(error);

@@ -1,11 +1,46 @@
+* {
+  box-sizing: border-box;
+}
 header {
     width: 100%;
     padding: 5px;
     text-align: left;
-    background: #006400;
+    background: #2fac2f;
     color: white;
   }
-
+.grid-container {
+    display: grid;
+    grid-template-columns:       auto auto auto auto auto;
+    grid-template-rows:     auto 
+                            auto ;
+    grid-gap: 10px;
+  }
+.grid-container > div {
+    margin: 5px;
+    font-size: 20px;
+  }
 body {
-    font-variant: small-caps;
+  font-family: Arial, Helvetica;
+  margin: 0;
+}
+img {
+  width: 250px;
+  height: 250px;
+}
+#normalPrice {
+  color: red;
+}
+
+@media screen and (max-width: 450px){
+  .grid-container {
+      grid-template-columns:       auto auto;
+      grid-template-rows:     auto 
+                              auto ;
+      flex-direction: column;
+      font-size: 50px;
+  } 
+  img {
+    width: 180px;
+    height: 180px;
+  }
 }
