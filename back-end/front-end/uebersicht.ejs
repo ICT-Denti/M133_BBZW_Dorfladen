@@ -1,11 +1,11 @@
-<%- await include('front-end/head.ejs', { title: 'Welcome' }) %>
+<%- await include('front-end/head.ejs', { title: 'Übersicht' }) %>
 <%- await include('front-end/header.ejs') %>
 <body>
     <div class="grid-container">
             <% for (let i = 0; i < itemList.length; i++) {  %>
                 <div class="box">
-                    <img src="<%= itemList[i].imageName %>" alt="<%= itemList[i].imageName %>">
-                    <p id=""><%= itemList[i].productName %></p>
+                    <a href="/front-end/detailansicht.ejs"><img src="<%= itemList[i].imageName %>" alt="<%= itemList[i].imageName %>"></a>
+                    <p id="pname"><%= itemList[i].productName %></p>
                     <p>CHF <%= itemList[i].specialOffer.toFixed(2) %> <s id="normalPrice">CHF<%= itemList[i].normalPrice.toFixed(2) %></s></p>
                 </div>
             <% } %>

@@ -14,17 +14,25 @@ router.get("/", async (context) => {
     }
 });
 
-// router.post("/warenkorb", async (context) => {
-//     try {
-//         const body = await context.request.body().value;
-//         console.log(body);
-//         context.response.body = await renderFileToString(Deno.cwd() + 
-//             "/front-end/warenkorb.ejs", { itemList: items });
-//         context.response.type = "html";
-//     } catch (error) {
-//         console.log(error);
-//     }
-// });
+router.get("/detailansicht", async (context) => {
+    try {
+        context.response.body = await renderFileToString(Deno.cwd() + "/front-end/detailansicht.ejs", { itemList: items });
+        context.response.type = "html";           
+    } catch (error) {
+        console.log(error);
+    }
+});
+router.post("/warenkorb", async (context) => {
+    try {
+        const body = await context.request.body().value;
+        console.log(body);
+        context.response.body = await renderFileToString(Deno.cwd() + 
+            "/front-end/warenkorb.ejs", { itemList: items });
+        context.response.type = "html";
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 const app = new Application();
 app.use(router.routes());

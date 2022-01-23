@@ -1,10 +1,15 @@
-<%- await include('front-end/header.ejs', { title: 'Info' }) %>
-<h1>Info</h1>
-<p>Hello <%= firstName %></p>
-<p>Your items:</p>
-<ul>
-    <% for (let i = 0; i < itemList.length; i++) {  %>
-        <li><%= itemList[i].productName %></li>
-    <% } %>
-</ul>
+<%- await include('front-end/head.ejs', { title: 'Warenkorb' }) %>
+<%- await include('front-end/header.ejs') %>
+<body>
+    <div class="grid-container">
+        <h1>Info</h1>
+        <p>Hello <%= firstName %></p>
+        <p>Your items:</p>
+        <ul>
+            <% for (let i = 0; i < itemList.length; i++) {  %>
+                <li><%= itemList[i].productName %></li>
+            <% } %>
+        </ul> 
+    </div>
+</body>
 <%- await include('front-end/footer.ejs') %>

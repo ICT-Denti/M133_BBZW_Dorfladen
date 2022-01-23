@@ -5,9 +5,11 @@ header {
     width: 100%;
     padding: 5px;
     text-align: left;
+    font-size: 48px;
     background: #2fac2f;
     color: white;
   }
+
 .grid-container {
     display: grid;
     grid-template-columns:       auto auto auto auto auto;
@@ -19,17 +21,25 @@ header {
     margin: 5px;
     font-size: 20px;
   }
+
 body {
   font-family: Arial, Helvetica;
   margin: 0;
 }
+
 img {
   width: 250px;
   height: 250px;
 }
+
+#pname {
+  color: #2fac2f;
+}
+
 #normalPrice {
   color: red;
 }
+
 
 @media screen and (max-width: 450px){
   .grid-container {
