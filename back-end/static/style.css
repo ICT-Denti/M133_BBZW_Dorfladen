@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 header {
-    width: 100%;
+    width: auto;
     padding: 5px;
     text-align: left;
     font-size: 48px;
@@ -28,8 +28,8 @@ body {
 }
 
 img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
 }
 
 #pname {
@@ -40,6 +40,40 @@ img {
   color: red;
 }
 
+
+footer {
+  font-size: 20px;
+  color: rgb(15, 75, 15);
+  text-align: center;
+}
+
+@media screen and (max-width: 1075px){
+  .grid-container {
+      grid-template-columns:       auto auto auto auto;
+      grid-template-rows:     auto 
+                              auto ;
+      flex-direction: column;
+      font-size: 50px;
+  } 
+  img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 775px){
+  .grid-container {
+      grid-template-columns:       auto auto auto;
+      grid-template-rows:     auto 
+                              auto ;
+      flex-direction: column;
+      font-size: 50px;
+  } 
+  img {
+    width: 180px;
+    height: 180px;
+  }
+}
 
 @media screen and (max-width: 450px){
   .grid-container {

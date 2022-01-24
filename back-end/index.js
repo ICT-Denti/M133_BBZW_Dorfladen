@@ -6,7 +6,7 @@ const items = readJsonSync("./static/products.json");
 const router = new Router();
 
 router.get("/", async (context) => {
-    try {
+    try { 
         context.response.body = await renderFileToString(Deno.cwd() + "/front-end/uebersicht.ejs", { itemList: items });
         context.response.type = "html";           
     } catch (error) {
@@ -14,9 +14,10 @@ router.get("/", async (context) => {
     }
 });
 
-router.get("/detailansicht", async (context) => {
+router.get("/detailansicht&:id", async (context) => {
     try {
-        context.response.body = await renderFileToString(Deno.cwd() + "/front-end/detailansicht.ejs", { itemList: items });
+        let zufallitem = getSelectedProduct(context.parms.id);
+        context.response.body = await renderFileToString(Deno.cwd() + "/front-end/detailansicht.ejs", { item: zufallitem });
         context.response.type = "html";           
     } catch (error) {
         console.log(error);
@@ -33,6 +34,14 @@ router.post("/warenkorb", async (context) => {
         console.log(error);
     }
 });
+
+function getSelectedProduct(id) {
+    for(let item of items) {
+        if(id == item.id) {
+            return item;
+        }
+    }
+}
 
 const app = new Application();
 app.use(router.routes());
